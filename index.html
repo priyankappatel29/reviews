@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leave a review | priyanka.photos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #1d2735;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      font-family: Georgia, serif;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 580px;
+    }
+    h1 {
+      font-family: 'League Gothic', sans-serif;
+      font-size: 52px;
+      color: #fdece0;
+      margin-bottom: 8px;
+      line-height: 1;
+      text-transform: lowercase;
+    }
+    .subtitle {
+      font-size: 16px;
+      font-weight: 200;
+      color: #fdece0;
+      opacity: 0.6;
+      margin-bottom: 48px;
+    }
+    .field { margin-bottom: 28px; }
+    label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #fdece0;
+      opacity: 0.6;
+      margin-bottom: 8px;
+      text-transform: lowercase;
+    }
+    input, textarea, select {
+      width: 100%;
+      background: rgba(253, 236, 224, 0.07);
+      border: 1px solid rgba(253, 236, 224, 0.2);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      color: #fdece0;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(253, 236, 224, 0.25);
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(253, 236, 224, 0.5);
+    }
+    textarea { min-height: 160px; resize: vertical; }
+    select option { background: #1d2735; color: #fdece0; }
+    .radio-group { display: flex; flex-direction: column; gap: 10px; }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(253, 236, 224, 0.07);
+      border: 1px solid rgba(253, 236, 224, 0.2);
+      border-radius: 8px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .radio-option:hover { border-color: rgba(253, 236, 224, 0.4); }
+    .radio-option input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      margin: 0;
+      accent-color: #fdece0;
+      flex-shrink: 0;
+    }
+    .radio-option span {
+      font-size: 15px;
+      color: #fdece0;
+      opacity: 0.85;
+    }
+    .radio-option.selected {
+      border-color: rgba(253, 236, 224, 0.6);
+      background: rgba(253, 236, 224, 0.12);
+    }
+    button {
+      background-color: #fdece0;
+      color: #1d2735;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 40px;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.85; }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .success {
+      display: none;
+      margin-top: 32px;
+      font-size: 16px;
+      color: #fdece0;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    .back {
+      display: block;
+      margin-top: 32px;
+      font-size: 13px;
+      color: #fdece0;
+      opacity: 0.4;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .back:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>leave a review</h1>
+    <p class="subtitle">thank you for trusting me with your moments.</p>
+
+    <div class="field">
+      <label>your name</label>
+      <input type="text" id="f-name" placeholder="Jane Smith" />
+    </div>
+
+    <div class="field">
+      <label>how happy were you with the final photos?</label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="happy" value="obsessed" /> <span>obsessed</span></label>
+        <label class="radio-option"><input type="radio" name="happy" value="really happy" /> <span>really happy</span></label>
+        <label class="radio-option"><input type="radio" name="happy" value="happy" /> <span>happy</span></label>
+        <label class="radio-option"><input type="radio" name="happy" value="expected more" /> <span>expected more</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>would you refer me to a friend?</label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="refer" value="already have" /> <span>already have</span></label>
+        <label class="radio-option"><input type="radio" name="refer" value="yes" /> <span>yes</span></label>
+        <label class="radio-option"><input type="radio" name="refer" value="maybe" /> <span>maybe</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>your review</label>
+      <textarea id="f-review" placeholder="share your experience..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>anything you'd change? (optional)</label>
+      <input type="text" id="f-change" placeholder="totally optional, be honest" />
+    </div>
+
+    <button id="submit-btn">submit</button>
+    <p class="success" id="success-msg">thank you so much 🤍<br><br>your review means a lot and i'll treasure it.</p>
+    <a class="back" href="https://www.priyanka.photos">← back to priyanka.photos</a>
+  </div>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzx6wRDifmPmP75eRsbOZ_eYq6CB5h181Pl9BRlyj34_4Xg8xiFPunp5LiL__K-CplQ/exec';
+
+    document.querySelectorAll('.radio-option').forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        const name = opt.querySelector('input[type="radio"]').name;
+        document.querySelectorAll('input[name="' + name + '"]').forEach(function(r) {
+          r.closest('.radio-option').classList.remove('selected');
+        });
+        opt.classList.add('selected');
+      });
+    });
+
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      const name = document.getElementById('f-name').value.trim();
+      const review = document.getElementById('f-review').value.trim();
+      const shootType = (document.querySelector('input[name="shoot-type"]:checked') || {}).value || '';
+      const comfort = (document.querySelector('input[name="comfort"]:checked') || {}).value || '';
+      const happy = (document.querySelector('input[name="happy"]:checked') || {}).value || '';
+      const refer = (document.querySelector('input[name="refer"]:checked') || {}).value || '';
+      const change = document.getElementById('f-change').value.trim();
+      const btn = document.getElementById('submit-btn');
+      const success = document.getElementById('success-msg');
+
+      if (!name || !review) {
+        alert('please fill in your name and review at minimum!');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'submitting...';
+
+      const params = '?name=' + encodeURIComponent(name)
+        + '&review=' + encodeURIComponent(review)
+        + '&shootType=' + encodeURIComponent(shootType)
+        + '&comfort=' + encodeURIComponent(comfort)
+        + '&happy=' + encodeURIComponent(happy)
+        + '&refer=' + encodeURIComponent(refer)
+        + '&change=' + encodeURIComponent(change);
+
+      const img = new Image();
+      img.onload = img.onerror = function() {
+        btn.style.display = 'none';
+        success.style.display = 'block';
+      };
+      img.src = SCRIPT_URL + params;
+    });
+  </script>
+</body>
+</html>
