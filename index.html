@@ -59,7 +59,6 @@
     animation: fadeUp 0.7s 0.25s forwards;
   }
 
-  /* LAYOUT */
   main { max-width: 720px; margin: 0 auto; padding: 64px 24px 100px; }
 
   .step-label {
@@ -232,12 +231,112 @@
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  /* HERO */
+  .booking-hero {
+  display: flex;
+  width: 100%;
+  padding: 0 24px;
+  margin: 0 0 24px 0;
+  box-sizing: border-box;
+}
+  .hero-left {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 24px;
+  }
+  .hero-title {
+    font-family: 'League Gothic', sans-serif;
+    font-size: clamp(64px, 10vw, 96px);
+    font-weight: 400;
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+  .hero-gold-line {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px 0;
+  }
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    opacity: 0.55;
+    line-height: 1.7;
+  }
+  .hero-right {
+    flex: 1.4;
+    position: relative;
+    min-height: 380px;
+    height: 380px;
+  }
+  .hero-img-tall {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 54%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .hero-img-tall img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .hero-img-wide {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 62%;
+    height: 80%;
+    overflow: hidden;
+    border: 3px solid var(--navy);
+  }
+  .hero-img-wide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .booking-hero {
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 36px;
+      padding: 0 16px;
+    }
+    .hero-left { padding-right: 0; }
+    .hero-right { min-height: 220px; }
+    .hero-title { font-size: 64px; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <img class="header-logo" src="https://priyankappatel29.github.io/booking/logo.png" alt="Priyanka Patel Photography" />
+  <div class="booking-hero" id="bookingHero">
+    <div class="hero-left">
+	<img src="logo.png" alt="Priyanka Patel Photography" class="header-logo" />
+      <div class="hero-sub">calgary & beyond</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-tall">
+        <img src="https://photos.smugmug.com/Weddings-Gallery/i-XtVH4bV/0/KPVKkZ3rJ4kzhgt6Kxs3MwKLMTW8gF7XzPHLLSRdR/X5/03_02_24_17_16_21-X5.jpg" alt="Priyanka Patel Photography" />
+      </div>
+      <div class="hero-img-wide">
+        <img src="https://photos.smugmug.com/Home-Page/i-TrnNBjs/0/LrcxwnqXCPjG6FnBhrRp4cfdqtp5sC9q6PWpqgpG3/4K/22_05_26_20_51_43-4K.jpg" alt="Priyanka Patel Photography" />
+      </div>
+    </div>
 </header>
 
 <main>
